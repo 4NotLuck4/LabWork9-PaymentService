@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Payment": {
+      "commandName": "Project"
+    },
+    "Seeder": {
+      "commandName": "Project",
+      "commandLineArgs": "--seed"
+    }
+  }
+}
