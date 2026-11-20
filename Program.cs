@@ -8,8 +8,8 @@ var builder = Host.CreateApplicationBuilder(new HostApplicationBuilderSettings
     ContentRootPath = AppContext.BaseDirectory
 });
 
-string bootstrapServers = builder.Configuration["Kafka:BootstrapServers"]
-    ?? throw new InvalidOperationException("Kafka:BootstrapServers is required.");
+string bootstrapServers = builder.Configuration["Kafka:BootstrapServers"] ??= "10.9.2.80:9092";
+builder.Configuration["Kafka:GroupId"] ??= "payment-service";
 
 builder.Services.AddSingleton<IProducer<string, string>>(_ =>
     new ProducerBuilder<string, string>(new ProducerConfig
